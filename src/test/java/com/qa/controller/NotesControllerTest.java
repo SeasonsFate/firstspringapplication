@@ -58,8 +58,16 @@ public class NotesControllerTest {
 
     @Test
     public void testDeleteNote(){
+        Note note = new Note();
+        note.setDescription("blah");
+        note.setName("blah");
 
+
+        when(repository.findOne(1L)).thenReturn(note);
+        assertEquals(notesController.deleteNote(1L), note);
     }
+
+
 
 
 
